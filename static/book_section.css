@@ -34,5 +34,28 @@ div > form > a {
     opacity: 1;
 }
 
+h3 {
+    font-family: Abril Fatface, Times New Roman, sans-serif;
+}
 
+div > p {
+    font-family: Helvetica, sans-serif;
+}
 
+.homebutton > a {
+    text-decoration: none;
+    color: black;
+}
+
+.homebutton > a:hover {
+    text-decoration: underline;
+}
+
+.viewinfo {
+    text-decoration: none;
+    color: black;
+}
+
+.viewinfo:hover {
+    text-decoration: underline;
+}
