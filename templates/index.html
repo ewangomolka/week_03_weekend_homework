@@ -1,27 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link href="{{ url_for('static', filename='book_section.css') }}" rel="stylesheet">
     <form action="/books" method="post">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="id">
-        <label for="author">Author</label>
-        <input type="text" name="author" id="id">
-        <label for="genre">Genre</label>
-        <input type="text" name="genre" id="id">
+        <p> <a href='/'>Home</a></p>
+        <!-- <label for="title">Title</label> -->
+        <input type="text" name="title" id="id" placeholder="Add Title">
+        <!-- <label for="author">Author</label> -->
+        <input type="text" name="author" id="id" placeholder="Add Author">
+        <!-- <label for="genre">Genre</label> -->
+        <input type="text" name="genre" id="id" placeholder="Add Genre">
         <label for="available">Availabile to check out?</label>
-        <input type="checkbox" name="available" id="id">
-        <input type="submit" value="Add Book">
+        <input class="tickbox" type="checkbox" name="available" id="id"><a>If you have shipped your book to us already, please tick this box! If you are yet to send us your book then you can ignore this box!</a>
+        <div class=addbutton>
+            <input type="submit" value="Add Book">
+        </div>
     </form>
     <h3>All Books</h3>
+    <div>
+        {% for book in books_list %}
+            <p>
+                {{book.title}} - {{book.author}} - {{book.genre}}
+            </p>
+            <a href="{{ url_for('single_book', book_id=book.id) }}">View Info</a>
 
-    {% for book in books_list %}
-        <p>
-            {{book.title}} - {{book.author}} - {{book.genre}}
-        </p>
-        <a href="{{ url_for('single_book', book_id=book.id) }}">View Info</a>
-
-            <form action="books/delete/{{ book.title }}" method="POST">
-                <input type="submit" value="Remove Book">
-            </form>
-    {% endfor %}
+                <form action="books/delete/{{ book.title }}" method="POST">
+                    <input class="remove" type="submit" value="Remove Book"><a> --> Are you sure you want to remove this book?</a>
+                </form>
+        {% endfor %}
+    </div>
 {% endblock %}

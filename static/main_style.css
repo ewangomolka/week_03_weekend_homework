@@ -1,0 +1,47 @@
+
+html, body, #gridcontainer {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url("library_image\ Large.jpeg");
+    color:antiquewhite;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-left: 20px;
+
+}
+
+main {
+    padding: 10px;
+    background-color: beige;
+}
+main > div {
+    padding: 20px;
+}
+
+footer {
+    background-image: url("library_image\ Large.jpeg");
+    color:antiquewhite;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+.add-text {
+    text-align: center;
+}
+
+header > p {
+    color: antiquewhite;
+}
